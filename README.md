@@ -17,7 +17,7 @@ ENTER COPILOT TEAM MEMBER and IaC: The repo is intended to help others use exist
 infrastructure resources. We will complement the team with Copilot(s): compliment the team or often times only individual developer or database/dev administrator to develop POCs and MVPs.
 
 CODE vs UI-Point&Click:
-Point and click with lengthy instructions and screenshots don't often convey all that is required. Documentation often lags new changes implemented. We have often found that UI does not offer or is able to implement the functioality required. CODE uses APIs which are up to date. APIs are updated before UI implementations. This allows us to take advantage of newly devloped functionality, options, and fixes.
+Point and click with lengthy instructions and screenshots don't often convey all that is required. Documentation often lags new changes implemented. We have often found that UI does not offer or is able to implement the functionality required. CODE uses APIs which are up to date. APIs are updated before UI implementations. This allows us to take advantage of newly devloped functionality, options, and fixes.
 
 The IaC/Github provides the review and test prior to tagging the IaC as secure and production ready. Point and Click setup is minimized and workflow and documentation is embedded in the Code and step wise naming convention. The SQL DDL is kept simple and can be correlated to evaluate the resulting DDL from the Copilot team member.
 VSCODE and SSMS are used as the IDEs for demonstrations. GitHub is used as a repository for code and versioning. Codespaces are used. Local and remote cloud resources are included.
