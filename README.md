@@ -11,11 +11,13 @@ COMPOSITE TEAMS: As we build teams, we typically have a senior skill set (archit
 
 COSTLY TIME WARP: Ten to fifteen years ago we built servers up from hardware with lengthy specs, quotes, and purchasing cycles. We then integrated them into a separate network for the purpose of Dev/Test, Staging, and Production. Versioning was a challenge in Dev and rolling out and rolling back client facing solutions. There was/is an inherent cost penalty for equipment and build up. Often the infrastructure is obsolete by the time success/failure is determined and in determining the value of the solution delivered.
 
+Enter VMs and images. Enter Docker, images, container registries, and containers. Enter cloud infrastructures.
+
 ENTER COPILOT TEAM MEMBER and IaC: The repo is intended to help others use existing tools and 
 infrastructure resources. We will complement the team with Copilot(s): compliment the team or often times only individual developer or database/dev administrator to develop POCs and MVPs.
 
-CODE vs UI-Point& Click:
-Point and click with legth instructions and screenshots dont often convey all that is required. Documentation often lags new changes implemented. We have often found that UI does not offer or is able to implement the functioality required. CODE uses APIs which are up to date. APIs are updated before UI implementations.
+CODE vs UI-Point&Click:
+Point and click with lengthy instructions and screenshots dont often convey all that is required. Documentation often lags new changes implemented. We have often found that UI does not offer or is able to implement the functioality required. CODE uses APIs which are up to date. APIs are updated before UI implementations.
 
 The IaC/Github provides the review and test prior to tagging the IaC as secure and production ready. Point and Click setup is minimized and workflow and documentation is embedded in the Code and step wise naming convention. The SQL DDL is kept simple and can be correlated to evaluate the resulting DDL from the Copilot team member.
 VSCODE and SSMS are used as the IDEs for demonstrations. GitHub is used as a repository for code and versioning. Codespaces are used. Local and remote cloud resources are included.
