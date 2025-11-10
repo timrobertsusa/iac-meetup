@@ -1,4 +1,4 @@
-STOP REPLYING ON COPILOT!!!
+Welcome
 
 This repo steps thru a process to create a development environment using copilot as a team member. Copilot not Pilot.
 
