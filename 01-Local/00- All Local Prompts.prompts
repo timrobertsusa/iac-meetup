@@ -1,0 +1,32 @@
+
+
+-- DDL to create Meetup Db in MS SQL
+
+-01-
+can you give me DDL to create Meetup Db in MS sql. tables: Customers, Products, Orders, OrderDetail. 
+Insert ddl to populate the tables
+
+-02-
+ why did the keychain acces be used - sqlprovider and cache
+
+-03-
+ can you add primary keys and the foreign keys
+
+-04-
+ can you now add the inserts and plz have at least 10 rows in customers and products table 
+with 10 orders and at least 5 line item order details per order
+
+-05-
+can you add a ShipToAddress table with multiple addresses per customer 
+some with 1 shiptoaddress and some with upto 3 shipto addresses per customer
+
+-06-
+the orders totalamount seems to incorrect based on the toal calcuated from order =details. can y9u fix this
+
+-07-
+can you add ShiptoAddress to thte orders table based selecting 1 random ShiptToAddress from the Customers ShitoAddress
+
+-08-
+can you give me the backup command to now bacakup the Database to a Meetup.bak file at location "D:\myDBBackups\"
+
+can you give me the commands to give permissions to the SQLServer service account as you described
