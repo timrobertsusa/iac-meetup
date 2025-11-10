@@ -23,4 +23,4 @@ The IaC/Github provides the review and test prior to tagging the IaC as repeatbl
 
 VSCODE and SSMS are used as the IDEs for demonstrations. GitHub is used as a repository for code and versioning. Codespaces are used. Local and remote cloud resources are included.
 
-The sample database developed "Customers, Products, Orders, OrderDeatil, ShipTioAddresses) is kept simple on purpose to understand and demonstrate the Copilot Prompting iterations. We will develop a database and then move it to a cloud resource for development, locked down public access other than for specific public IPs.
+The sample database developed "Customers, Products, Orders, OrderDetail, ShipTioAddresses) is kept simple on purpose to understand and demonstrate the Copilot Prompting iterations. We will develop a database and then move it to a cloud resource for development, locked down public access other than for specific public IPs.
