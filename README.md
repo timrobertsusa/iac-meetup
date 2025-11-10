@@ -24,3 +24,7 @@ The IaC/Github provides the review and test prior to tagging the IaC as repeatbl
 VSCODE and SSMS are used as the IDEs for demonstrations. GitHub is used as a repository for code and versioning. Codespaces are used. Local and remote cloud resources are included.
 
 The sample database developed "Customers, Products, Orders, OrderDetail, ShipTioAddresses) is kept simple on purpose to understand and demonstrate the Copilot Prompting iterations. We will develop a database and then move it to a cloud resource for development, locked down public access other than for specific public IPs.
+
+The Hub & Spoke diagram (repo referenced) illustrates a more complex infrastructure. It became the reference architexture we (as well as others) have adopted. For the most part, we have attempted to illustrate the approach, steps learned and adopted in Hub&Spoke, naming conventions, and tools here.
+
+We hope others can make use of the learnings and approach within this repo and demo, engaging Copilot as your team member and familiarizing yourself with the tools and technology now available. Comments and suggestions welcome.
