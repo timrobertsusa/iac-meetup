@@ -1,3 +1,5 @@
+STOP REPLYING ON COPILOT!!!
+
 This repo steps thru a process to create a development environment using copilot as a team member. Copilot not Pilot.
 
 The challenges teams face is the time delay between gathering requirements and engaging the composite teams: backend dev, frontend dev, security, CI/CD, testing, documentation and respective infrastructures for dev, staging, prod.
