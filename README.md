@@ -21,7 +21,7 @@ POCs and MVPs are used in most cases to flesh out the many risks/issues, evaluat
 ### CODE vs UI-Point&Click: ###
 Point and click with lengthy instructions and screenshots don't often convey all that is required. Documentation often lags new changes implemented. We have often found that UI does not offer or is able to implement the functionality required. CODE uses APIs which are up to date. APIs are updated before UI implementations. This allows us to take advantage of newly devloped functionality, options, and fixes.
 
-The "IaC/Github approach" provides the review and test steps prior to tagging the IaC as repeatble, secure, tested, and production ready. Point and Click setup is minimized and workflow and documentation is embedded in the Code and step wise naming convention. The resuting SQL DDL from the Copilot team member is intended to be simple/understandable and provides an iterative "Prompting" illustration to acieve intended/correct DDL results. Give it a try.
+The "IaC/Github approach" provides the review and test steps prior to tagging the IaC as repeatble, secure, tested, and production ready. Point and Click setup is minimized; workflow and documentation is embedded in the Code;  step wise naming convention are utilized. The resuting SQL DDL from the Copilot team member is intended to be simple/understandable and provides an iterative "Prompting" illustration to acieve intended/correct DDL results. Give it a try.
 
 ## The Demo ##
 **VSCODE, DBeaver 25 EE, SSMS 22 Prevew 5** are used as the IDEs for demonstrations. **GitHub** is used as a repository for code and versioning. **Codespaces** are used. Environmental variables and secrets are utilized and kept secure. Local and remote cloud resources are included.
