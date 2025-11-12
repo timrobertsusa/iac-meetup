@@ -414,3 +414,6 @@ Thumbs.db
 # supress yaml files with secrets
 deployment.yaml
 service-account.yaml
+
+# apple 
+.DS_Store 
