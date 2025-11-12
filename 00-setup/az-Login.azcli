@@ -1,0 +1,12 @@
+# install the Azure CLI on Linux
+sudo apt-get update
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+az --version
+
+export TENANT_ID=$(az account show --query tenantId --output tsv)
+echo $TENANT_ID
+
+# login to Azure
+az account show
+az login --tenant $TENANT_ID
+#az account set --subscription $SUBSCRIPTION_NAME
