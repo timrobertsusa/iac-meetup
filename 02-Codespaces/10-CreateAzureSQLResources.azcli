@@ -1,0 +1,19 @@
+echo $MYMEETUPSECRET   
+echo $TESTSECRET 
+
+az group create --name rg-meetup --location eastus2
+
+az sql server create \
+    --name meetup-sql-server \
+    --resource-group rg-meetup \
+    --location eastus2 \
+    --admin-user sqladmin \
+    --admin-password $MYMEETUPSECRET
+
+az sql db create \
+    --resource-group rg-meetup \
+    --server meetup-sql-server \
+    --name meetupdb \
+    --service-objective S0
+
+    az account show
