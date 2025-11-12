@@ -11,12 +11,13 @@ databaseName="meetupdb"
 adminLogin=$ADMINLOGIN  # Replace with your Entra ID username
 adminObjectId=$ADMINOBJECTID # Replace with your Entra ID user's object ID
 
+----
 export SQLADMINUSER="sqladmin"
 export SQLADMINPASSWORD=$MYMEETUPSECRET
 
 echo $SQLADMINUSER
 echo $SQLADMINPASSWORD
-
+-----
 
 echo $serverName
 echo $resourceGroup
