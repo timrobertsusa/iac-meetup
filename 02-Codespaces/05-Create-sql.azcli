@@ -1,0 +1,84 @@
+
+
+az account show
+
+echo $MYMEETUPSECRET   
+echo $TESTSECRET 
+
+
+@\#Microsoft Entra Admin Creds
+echo $ADMINLOGIN
+echo $ADMINOBJECTID
+
+az group create --name rg-meetup --location eastus2
+
+
+-- this does not set Microsoft Entra Admin
+-- This is NOT serverless
+-- NOte  --service-objective S0
+-- 
+az sql server create \
+    --name meetup-sql-server \
+    --resource-group rg-meetup \
+    --location eastus2 \
+    --admin-user sqladmin \
+    --admin-password $MYMEETUPSECRET
+
+az sql db create \
+    --resource-group rg-meetup \
+    --server meetup-sql-server \
+    --name meetupdb \
+    --service-objective S0
+
+
+-----------
+
+# Set Microsoft Entra (Azure AD) admin for SQL server
+# Replace with your actual Entra ID username and object ID
+adminLogin=$ADMINLOGIN
+adminObjectId=$ADMINOBJECTID
+
+az sql server ad-admin create \
+    --resource-group rg-meetup \
+    --server meetup-sql-server \
+    --display-name $adminLogin \
+    --object-id $adminObjectId
+
+-------------------
+
+#Microsft Entra Admin ONLY for SQL Server
+# This is NOT serverless
+az sql server create \
+    --name meetup-sql-server \
+    --resource-group rg-meetup \
+    --location eastus2 \
+    --admin-user sqladmin \
+    --admin-password $MYMEETUPSECRET
+
+# Set Microsoft Entra (Azure AD) admin for SQL server
+# Replace with your actual Entra ID username and object ID
+
+adminLogin=$ADMINLOGIN
+adminObjectId=$ADMINOBJECTID
+echo $adminLogin
+echo $adminObjectId
+
+
+#12 seconds
+az sql server ad-admin create \
+    --resource-group rg-meetup \
+    --server meetup-sql-server \
+    --display-name $adminLogin \
+    --object-id $adminObjectId
+
+# Create standard SQL database
+az sql db create \
+    --resource-group rg-meetup \
+    --server meetup-sql-server \
+    --name meetupdb \
+    --service-objective S0  
+
+
+
+
+

@@ -1,0 +1,70 @@
+
+05
+
+
+can you add azcli to set Microsoft Entra Admin
+
+-------------------------
+
+Azure CLI commands to create the resource group rg-meetup, serverless SQL server meetup and database, 
+set Entra ID admin, 
+and start/stop the database to add 15-CreateAzureSQLResources.azcli.
+
+
+15-CreateAzureSQLResources.azcli
+Create a new file with Azure CLI commands to:
+
+Create resource group rg-meetup
+Create a serverless SQL server and database
+Set Entra ID admin
+Pause/resume the database
+
+
+
+
+can you modify firewall network for my serverless sql to add my ip address 
+and only have specifc ip addresses
+
+15-CreateAzureSQLResources.azcli
+Add Azure CLI commands to configure the SQL server firewall to allow only specific IP addresses (including your own).
+Steps:
+
+Define allowed IP addresses (replace with your actual IPs).
+Remove all existing firewall rules.
+Add firewall rules for each allowed IP.
+
+
+
+
+-------
+---Error initially on sql server create--
+
+az sql server create \
+    --name $serverName \
+    --resource-group $resourceGroup \
+    --location $location
+(InvalidParameterValue) Invalid value given for parameter Login. Specify a valid parameter value.
+Code: InvalidParameterValue
+Message: Invalid value given for parameter Login. Specify a valid parameter value.
+
+The az sql server create command requires a valid --admin-user and --admin-password for SQL authentication.
+Entra ID admin is set separately and does not replace these required parameters.
+Update the command to include --admin-user and --admin-password (use secure environment variables or secrets).
+
+Set SQLADMINUSER and SQLADMINPASSWORD environment variables before running the script.
+Do not use Entra ID username/object ID for these parameters.
+Example:
+
+export SQLADMINUSER="sqladmin"
+export SQLADMINPASSWORD="yourStrongPassword123!"
+
+# Create SQL server
+az sql server create \
+    --name $serverName \
+    --resource-group $resourceGroup \
+    --location $location \
+    --admin-user $SQLADMINUSER \
+    --admin-password $SQLADMINPASSWORD
+
+----------------------------
+

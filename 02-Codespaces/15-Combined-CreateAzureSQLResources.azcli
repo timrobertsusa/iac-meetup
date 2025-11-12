@@ -1,0 +1,94 @@
+echo $ADMINLOGIN
+echo $ADMINOBJECTID
+
+# Variables
+resourceGroup="rg-meetup2"
+location="eastus2"
+serverName="meetup-sql-$(openssl rand -hex 5)"
+databaseName="meetupdb"
+
+
+adminLogin=$ADMINLOGIN  # Replace with your Entra ID username
+adminObjectId=$ADMINOBJECTID # Replace with your Entra ID user's object ID
+
+export SQLADMINUSER="sqladmin"
+export SQLADMINPASSWORD=$MYMEETUPSECRET
+
+echo $SQLADMINUSER
+echo $SQLADMINPASSWORD
+
+
+echo $serverName
+echo $resourceGroup
+echo $location
+
+
+
+# Create resource group
+az group create --name $resourceGroup --location $location
+
+# Create SQL server
+az sql server create \
+    --name $serverName \
+    --resource-group $resourceGroup \
+    --location $location \
+    --admin-user $SQLADMINUSER \
+    --admin-password $SQLADMINPASSWORD
+
+# Set Entra ID (Azure AD) admin for SQL server
+az sql server ad-admin create \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --display-name $adminLogin \
+    --object-id $adminObjectId
+
+
+
+------------------------
+# Create serverless SQL database
+az sql db create \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --name $databaseName \
+    --compute-model Serverless \
+    --auto-pause-delay 60 \
+    --min-capacity 0.5 \
+    --max-size 5GB \
+    --edition GeneralPurpose
+
+# To pause (stop) the database
+az sql db pause \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --name $databaseName
+
+# To resume (start) the database
+az sql db resume \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --name $databaseName
+
+
+---------------------
+
+
+# Define allowed IP addresses (replace with your actual IPs)
+allowedIPs=("YOUR_IP_ADDRESS" "ANOTHER_ALLOWED_IP")
+
+# Remove all existing firewall rules
+existingRules=$(az sql server firewall-rule list --resource-group $resourceGroup --server $serverName --query "[].name" -o tsv)
+for rule in $existingRules; do
+    az sql server firewall-rule delete --resource-group $resourceGroup --server $serverName --name $rule
+done
+
+-----
+
+# Add firewall rules for allowed IPs
+for ip in "${allowedIPs[@]}"; do
+    az sql server firewall-rule create \
+        --resource-group $resourceGroup \
+        --server $serverName \
+        --name "Allow_$ip" \
+        --start-ip-address $ip \
+        --end-ip-address $ip
+done

@@ -1,0 +1,65 @@
+# Variables
+resourceGroup="rg-meetup"
+location="eastus2"
+serverName="meetup-sql-$(openssl rand -hex 5)"
+databaseName="meetupdb"
+adminLogin="your.admin@domain.com" # Replace with your Entra ID username
+adminObjectId="00000000-0000-0000-0000-000000000000" # Replace with your Entra ID user's object ID
+
+# Create resource group
+az group create --name $resourceGroup --location $location
+
+# Create SQL server
+az sql server create \
+    --name $serverName \
+    --resource-group $resourceGroup \
+    --location $location
+
+# Set Entra ID (Azure AD) admin for SQL server
+az sql server ad-admin create \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --display-name $adminLogin \
+    --object-id $adminObjectId
+
+# Create serverless SQL database
+az sql db create \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --name $databaseName \
+    --compute-model Serverless \
+    --auto-pause-delay 60 \
+    --min-capacity 0.5 \
+    --max-size 5GB \
+    --edition GeneralPurpose
+
+# To pause (stop) the database
+az sql db pause \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --name $databaseName
+
+# To resume (start) the database
+az sql db resume \
+    --resource-group $resourceGroup \
+    --server $serverName \
+    --name $databaseName
+echo $MYMEETUPSECRET   
+echo $TESTSECRET 
+
+az group create --name rg-meetup --location eastus2
+
+az sql server create \
+    --name meetup-sql-server \
+    --resource-group rg-meetup \
+    --location eastus2 \
+    --admin-user sqladmin \
+    --admin-password $MYMEETUPSECRET
+
+az sql db create \
+    --resource-group rg-meetup \
+    --server meetup-sql-server \
+    --name meetupdb \
+    --service-objective S0
+
+    az account show
