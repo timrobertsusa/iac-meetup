@@ -26,7 +26,8 @@ The "IaC/Github approach" provides the review and test steps prior to tagging th
 ## The Demo ##
 **VSCODE, DBeaver 25 EE, SSMS 22 Prevew 5** are used as the IDEs for demonstrations. **GitHub** is used as a repository for code and versioning. **Codespaces** are used. Environmental variables and secrets are utilized and kept secure. Local and remote cloud resources are included.
 
-![MeetupDB ERD]/04-images/meetupdb-ERD.png
+<img width="461" height="411" alt="meetupdb-ERD" src="https://github.com/user-attachments/assets/acc3626d-efee-410e-b2b8-cc1ebdba4993" />
+
 The sample database developed **Meetup** with tables "Customers, Products, Orders, OrderDetail, ShipTioAddresses) is kept simple on purpose to understand and demonstrate the Copilot Prompting iterations. We will develop a database and then move it to a cloud resource. Then populate it with mock data for development. We will lock down public access other than for specific public IPs.
 
 The Hub & Spoke diagram (repo referenced) illustrates a more complex infrastructure. It became the reference architexture we (as well as others) have adopted. For the most part, we have attempted to illustrate the approach, steps learned and adopted in Hub&Spoke, naming conventions, and tools here. It is a wothwhile workshop by itself. Thanks to its contributors and mentors it provides sound guidance.
